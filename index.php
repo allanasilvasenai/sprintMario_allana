@@ -24,31 +24,49 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Harry Bross - Jogo com Ranking MySQL</title>
-    
+    <link rel="icon" type="image/png" href="assets/moeda_harry.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+    <button type="button" id="btn-mute" class="btn-mute" title="Desativar som">🔊</button>
     <div class="game-container">
         
+        <!-- BARRA SUPERIOR (HUD) -->
         <header class="hud-bar">
             <div class="player-info">
                 <span class="label">JOGADOR:</span>
                 <span class="value" id="hud-player-name">---</span>
             </div>
+
+            <div class="lives-info">
+                <span class="label">VIDAS:</span>
+                <span class="value" id="lives-count">
+                    <img src="assets/coracao.png" class="heart-icon" alt="Vida">
+                    <img src="assets/coracao.png" class="heart-icon" alt="Vida">
+                    <img src="assets/coracao.png" class="heart-icon" alt="Vida">
+                </span>
+            </div>
+
+            <div class="coins-info">
+                <span class="label">MOEDAS:</span>
+                <span class="value" id="coins-count">0</span>
+            </div>
+
             <div class="score-info">
                 <span class="label">PONTUAÇÃO:</span>
                 <span class="value" id="score-display">0</span>
             </div>
         </header>
-
         
+        <!-- TABULEIRO DO JOGO -->
         <main class="game-board" id="game-board">
-            <img src="assets/clouds.png" class="clouds" alt="Nuvens">
-            <img src="assets/harry_correndo_transparente.gif" class="harry" alt="Harry">
-            <img src="assets/pipe.png" class="pipe" alt="obstaculo">
+            <img src="assets/clouds_harry.png" class="clouds" alt="Nuvens">
+            <img src="assets/moeda_harry.png" class="coin" id="coin" alt="Moeda">
+            <img src="assets/personagens_correndo/harry_correndo.gif" class="harry" alt="Harry">
+            <img src="assets/pipe.png" class="pipe" alt="Obstáculo">
             <span class="jump-tip" id="jump-tip">Pressione ESPAÇO ou clique para pular</span>
         </main>
+
     </div>
 
     <!-- 1. TELA DE INÍCIO / INSERIR NOME -->
@@ -71,6 +89,67 @@ try {
                         autocomplete="off"
                         autofocus
                     >
+                </div>
+
+                <div class="character-select">
+                    <label class="select-label">ESCOLHA SEU PERSONAGEM:</label>
+                    <div class="character-grid" id="character-grid">
+
+                        <label class="character-card">
+                            <input type="radio" name="personagem" value="harry" checked>
+                            <img src="assets/harry_parado.png" alt="Harry">
+                            <main><p>Harry</p></main>
+                        </label>
+
+                        <label class="character-card">
+                            <input type="radio" name="personagem" value="hermione">
+                            <img src="assets/hermione_parado.png" alt="Hermione">
+                            <main><p>Hermione</p></main>
+                        </label>
+
+                        <label class="character-card">
+                            <input type="radio" name="personagem" value="rony">
+                            <img src="assets/rony_parado.png" alt="Rony">
+                            <main><p>Rony</p></main>
+                        </label>
+
+                        <label class="character-card">
+                            <input type="radio" name="personagem" value="draco">
+                            <img src="assets/draco_parado.png" alt="Draco">
+                            <main><p>Draco</p></main>
+                        </label>
+
+                        <label class="character-card">
+                            <input type="radio" name="personagem" value="hagrid">
+                            <img src="assets/hagrid_parado.png" alt="Hagrid">
+                            <main><p>Hagrid</p></main>
+                        </label>
+
+                        <label class="character-card">
+                            <input type="radio" name="personagem" value="snape">
+                            <img src="assets/snape_parado.png" alt="Snape">
+                            <main><p>Snape</p></main>
+                        </label>
+
+                        <label class="character-card">
+                            <input type="radio" name="personagem" value="dumbledore">
+                            <img src="assets/dumbledore_parado.png" alt="Dumbledore">
+                            <main><p>Dumbledore</p></main>
+                        </label>
+
+                        <label class="character-card">
+                            <input type="radio" name="personagem" value="roberto">
+                            <img src="assets/personagens_correndo/roberto.png" alt="Roberto">
+                            <main><p>Robertin Rex</p></main>
+                        </label>
+
+                        <label class="character-card">
+                            <input type="radio" name="personagem" value="daniel">
+                            <img src="assets/personagens_correndo/daniel.png" alt="Daniel">
+                            <main><p>Danrran Frango</p></main>
+                        </label>
+
+                    </div>
                 </div>
 
                 <div class="modal-actions">
@@ -132,12 +211,11 @@ try {
 
             <div class="modal-actions">
                 <button type="button" class="btn btn-primary" id="btn-restart">JOGAR NOVAMENTE</button>
-                <button type="button" class="btn btn-secondary" id="btn-change-player">TROCAR JOGADOR</button>
+                <button type="button" class="btn btn-secondary" id="btn-change-player">TROCAR PERSONAGEM</button>
             </div>
         </div>
     </div>
 
-   
     <script src="js/script.js" defer></script>
 </body>
 </html>
